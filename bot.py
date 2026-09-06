@@ -1921,21 +1921,21 @@ class MandatoryChannelMiddleware(BaseMiddleware):
                 missing.append(ch)
 
         if not missing:
-            return await handler(event, data)
+ return await handler(event, data)
 
- text = (
-        "🔒 Botdan foydalanish uchun quyidagi kanal(lar)ga a'zo bo'ling, "
-        "so'ng \"✅ Tekshirish\" tugmasini bosing:\n\n"
-        "BOT YARATUVCHISI : Isoqov Mironshoh\n"
-        "RASMIY MANZIL : @isoqovmironshoh"
-    )
-    kb = multi_subscription_gate_kb(missing)
-    if isinstance(event, Message):
-        await event.answer(text, reply_markup=kb)
-    elif isinstance(event, CallbackQuery):
-        await event.answer("Avval barcha kanallarga a'zo bo'ling!", show_alert=True)
-        await event.message.answer(text, reply_markup=kb)
-    return None
+        text = (
+            "🔒 Botdan foydalanish uchun quyidagi kanal(lar)ga a'zo bo'ling, "
+            "so'ng \"✅ Tekshirish\" tugmasini bosing:\n\n"
+            "BOT YARATUVCHISI : Isoqov Mironshoh\n"
+            "RASMIY MANZIL : @isoqovmironshoh"
+        )
+        kb = multi_subscription_gate_kb(missing)
+        if isinstance(event, Message):
+            await event.answer(text, reply_markup=kb)
+        elif isinstance(event, CallbackQuery):
+            await event.answer("Avval barcha kanallarga a'zo bo'ling!", show_alert=True)
+            await event.message.answer(text, reply_markup=kb)
+        return None
 
 # ============================================================================
 # DUEL QUEUE / LIVE DUEL ENGINE (shared state)
