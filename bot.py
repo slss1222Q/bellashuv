@@ -92,7 +92,7 @@ class Config:
     admin_ids: list[int] = field(default_factory=lambda: [8355669630, 222222222])
 
     # 👉 pul yechish so'rovlari yuboriladigan guruh/chat ID (masalan: -1001234567890)
-    admin_chat_id: int = -1004337575995
+    admin_chat_id: int = -1003976084050
 
     # 👉 admin savollarni post qiladigan xususiy kanal ID (masalan: -1004464642367)
     test_source_channel_id: int = -1009876543210
@@ -1925,7 +1925,9 @@ class MandatoryChannelMiddleware(BaseMiddleware):
 
         text = (
             "🔒 Botdan foydalanish uchun quyidagi kanal(lar)ga a'zo bo'ling, "
-            "so'ng \"✅ Tekshirish\" tugmasini bosing:"
+            "so'ng \"✅ Tekshirish\" tugmasini bosing:
+            BOT YARATUVCHISI : Isoqov Mironshoh 
+            RASMIY MANZIL : @isoqovmironshoh"
         )
         kb = multi_subscription_gate_kb(missing)
         if isinstance(event, Message):
